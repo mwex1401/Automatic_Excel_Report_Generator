@@ -1,0 +1,15 @@
+import requests
+
+def check_for_updates():
+    try:
+        response = requests.get("https://raw.githubusercontent.com/mwex1401/Automatic_Excel_Report_Generator.git/main/version.txt")
+        latest_version = response.text.strip()
+        current_version = "1.0.0"  # Update this version as needed
+
+        if latest_version != current_version:
+            print(f"Update available! Latest version: {latest_version}")
+            # Add logic to prompt users to download the latest version
+    except Exception as e:
+        print(f"Error checking for updates: {e}")
+
+check_for_updates()
