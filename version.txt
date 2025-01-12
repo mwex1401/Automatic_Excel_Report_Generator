@@ -13,3 +13,12 @@ def check_for_updates():
         print(f"Error checking for updates: {e}")
 
 check_for_updates()
+
+def download_update():
+    url = "https://github.com/yourusername/your-repo/releases/latest/download/your_script.exe"
+    response = requests.get(url, stream=True)
+    with open("your_script_latest.exe", "wb") as file:
+        for chunk in response.iter_content(chunk_size=1024):
+            file.write(chunk)
+    print("Update downloaded!")
+
